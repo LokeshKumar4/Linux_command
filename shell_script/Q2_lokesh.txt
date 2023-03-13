@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# create directory if it doesn't exist
+mkdir -p ~/Desktop
+
+# extract tar file to directory
+tar -xzf result.tar.gz -C ~/Desktop
+
+# read contents of datafile
+if [[ -f ~/Desktop/datafile ]]
+then
+  echo "Contents of datafile from 1 to 5 bytes: $(head -c 5 ~/Desktop/datafile)"
+  echo "Contents of datafile from 9 to 10 bytes: $(tail -c +9 ~/Desktop/datafile | head -c 2)"
+else
+  # create file by copying /etc/passwd
+  echo "/etc/passwd will be copied to ~/Desktop/datafile"
+  sudo cp /etc/passwd ~/Desktop/datafile
+fi

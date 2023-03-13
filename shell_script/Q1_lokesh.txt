@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# find all files in the current directory that were created by the current user and end in ".txt"
+filesToDelete=$(find . -type f -user $(whoami) -name "*.txt")
+
+# check if there are any ".txt" files to delete
+if [[ -z "$filesToDelete" ]]
+then
+  echo "no text file"
+else
+  # delete the files found in the previous step
+  rm $filesToDelete
+fi
+
+# create a tar file of the remaining files in the directory
+tar -czvf result.tar.gz .

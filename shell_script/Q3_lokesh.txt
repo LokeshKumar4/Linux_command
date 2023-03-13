@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# create the directory "demo"
+mkdir demo
+
+# create the first file and write "hello futurense" to it
+echo "hello futurense" > demo/file1
+
+# create the second file (a hidden file) and write "bye futurense" to it
+echo "bye futurense" > demo/.file2
+
+# list all the files in the directory "demo"
+ls -a demo
